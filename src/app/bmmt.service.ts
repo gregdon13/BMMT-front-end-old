@@ -9,14 +9,22 @@ import {Transaction} from './models/transaction';
 })
 export class BmmtService {
 
-  private mainUrl: string;
+  private readonly mainUrl: string;
 
   constructor(private http: HttpClient) {
-    this.mainUrl = 'http://localhost:8080/';
+    this.mainUrl = 'http://localhost:8080';
   }
 
   // transaction methods
-  public findAll(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.mainUrl + 'transaction/all');
+  findAllTransactions(): Observable<any> {
+    return this.http.get(`${this.mainUrl}/transaction/all`);
+  }
+
+  findUserTransactions(userId): Observable<any> {
+    return this.http.get(`${this.mainUrl}/transaction/user/${userId}`);
+  }
+
+  findAccountTransactions(accountNumber): Observable<any> {
+    return this.http.get(`${this.mainUrl}/transaction/account/${accountNumber}`);
   }
 }
