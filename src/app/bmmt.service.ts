@@ -34,8 +34,8 @@ export class BmmtService {
     return this.http.post(`${this.mainUrl}/transaction`, body);
   }
 
-  // account methods
 
+  // account methods
   createAccount(moneyAccount: MoneyAccount): Observable<any> {
     const body = JSON.stringify(moneyAccount);
     return this.http.post(`${this.mainUrl}/account`, body);
