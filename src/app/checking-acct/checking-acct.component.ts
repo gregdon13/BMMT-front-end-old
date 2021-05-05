@@ -9,25 +9,26 @@ import {MoneyAccount} from '../models/moneyaccount';
    styleUrls: ['./checking-acct.component.css']
 })
 export class CheckingAcctComponent implements OnInit{
-  headerComp: HeaderComponent;
-  header = 'CHECKING ACCOUNT';
-  accountService: BmmtService;
   accountObj: MoneyAccount;
   accountNum: number;
   accountBalance: number;
   accountsArr: MoneyAccount[];
 
 
-  constructor() {
+  constructor(private accountService: BmmtService) {
+    this.accountObj = new MoneyAccount();
+    this.accountBalance = this.getBalance(123456789);
   }
 
   ngOnInit(): void {
-    this.headerComp.setHeader('CHECKING ACCOUNT');
   }
 
-  getBalance(accountNumber): void {
+  getBalance(accountNumber): number {
+    console.log(this.accountObj);
     this.accountService.getAccountByNumber(accountNumber).subscribe(account => this.accountObj = account);
+    console.log(this.accountObj);
     this.accountBalance = this.accountObj.BALANCE;
+    return this.accountBalance;
   }
 
   getNumber(accountName, userId): void {

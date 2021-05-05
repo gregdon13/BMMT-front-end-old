@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { appRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -11,7 +10,8 @@ import { LoginComponent } from './login';
 import { CheckingAcctComponent } from './checking-acct';
 import { SavingsAcctComponent } from './savings-acct';
 import { InvestmentAcctComponent } from './investment-acct';
-
+import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,12 +22,14 @@ import { InvestmentAcctComponent } from './investment-acct';
     HelpComponent,
     CheckingAcctComponent,
     SavingsAcctComponent,
-    InvestmentAcctComponent
+    InvestmentAcctComponent,
   ],
-  imports: [
-    BrowserModule,
-    appRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        appRoutingModule,
+        FormsModule,
+      HttpClientModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

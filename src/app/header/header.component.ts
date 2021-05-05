@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  header = '';
+  header: string;
 
   constructor() {
   }
@@ -18,4 +18,8 @@ export class HeaderComponent implements OnInit {
     this.header = words;
   }
 
+
+  getHeader(): string {
+    return this.header;
+  }
 }
