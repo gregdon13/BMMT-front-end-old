@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { BmmtService } from '../bmmt.service';
 import {MoneyAccount} from '../models/moneyaccount';
 
 @Component({
-  selector: 'app-checking-acct',
+   selector: 'app-checking-acct',
   templateUrl: './checking-acct.component.html',
-  styleUrls: ['./checking-acct.component.css']
+   styleUrls: ['./checking-acct.component.css']
 })
-export class CheckingAcctComponent implements OnInit {
+export class CheckingAcctComponent implements OnInit{
   headerComp: HeaderComponent;
   header = 'CHECKING ACCOUNT';
   accountService: BmmtService;
@@ -18,12 +18,11 @@ export class CheckingAcctComponent implements OnInit {
   accountsArr: MoneyAccount[];
 
 
-  constructor(headerComponent: HeaderComponent) {
-    this.headerComp = headerComponent;
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.headerComp.setHeader(this.header);
+    this.headerComp.setHeader('CHECKING ACCOUNT');
   }
 
   getBalance(accountNumber): void {
