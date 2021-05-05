@@ -17,13 +17,11 @@ export class CheckingAcctComponent implements OnInit {
   accountsArr: MoneyAccount[];
 
 
-  constructor(header: HeaderComponent, accountService: BmmtService) {
-    this.headerComp = header;
-    this.accountService = accountService;
-    this.headerComp.setHeader('CHECKING ACCOUNT');
+  constructor() {
   }
 
   ngOnInit(): void {
+    this.headerComp.setHeader('CHECKING ACCOUNT');
   }
 
   getBalance(accountNumber): void {
@@ -33,9 +31,9 @@ export class CheckingAcctComponent implements OnInit {
 
   getNumber(accountName, userId): void {
     this.accountService.getAccountByUser(userId).subscribe(accounts => this.accountsArr = accounts);
-    for (let i = 0; i < this.accountsArr.length; i++) {
-      if (this.accountsArr[i].ACCOUNT_TYPE === 'Checking') {
-        this.accountNum = this.accountsArr[i].ACCOUNT_NUMBER;
+    for (const val of this.accountsArr) {
+        if (val.ACCOUNT_TYPE === 'Checking') {
+          this.accountNum = val.ACCOUNT_NUMBER;
       }
     }
   }
