@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home';
 import { HelpComponent } from './help';
-import {LoginComponent} from './login';
+import { LoginComponent } from './login';
 import { CheckingAcctComponent } from './checking-acct';
 import { SavingsAcctComponent } from './savings-acct';
 import { InvestmentAcctComponent } from './investment-acct';
