@@ -6,6 +6,7 @@ import { HelpComponent } from './help';
 import {CheckingAcctComponent} from './checking-acct';
 import {SavingsAcctComponent} from './savings-acct';
 import {InvestmentAcctComponent} from './investment-acct';
+import { UserProfileComponent } from "./user-profile/user-profile.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'checking', component: CheckingAcctComponent},
   { path: 'savings', component: SavingsAcctComponent},
   { path: 'investment', component: InvestmentAcctComponent},
+  { path: '', component: UserProfileComponent},
 
   // otherwise redirects to home
   { path: '**', redirectTo: ''}
