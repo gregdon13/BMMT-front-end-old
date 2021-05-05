@@ -1,9 +1,18 @@
 export class MoneyAccount {
+  private _ID: number;
   ACCOUNT_TYPE: string;
   BALANCE: number;
   ACCOUNT_NUMBER: number;
   USER_ID: number;
 
+
+  get ID(): number {
+    return this._ID;
+  }
+
+  set ID(value: number) {
+    this._ID = value;
+  }
 
   get accountType(): string {
     return this.ACCOUNT_TYPE;
