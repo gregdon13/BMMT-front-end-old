@@ -10,6 +10,7 @@ import {MoneyAccount} from '../models/moneyaccount';
 })
 export class CheckingAcctComponent implements OnInit {
   headerComp: HeaderComponent;
+  header = 'CHECKING ACCOUNT';
   accountService: BmmtService;
   accountObj: MoneyAccount;
   accountNum: number;
@@ -17,11 +18,12 @@ export class CheckingAcctComponent implements OnInit {
   accountsArr: MoneyAccount[];
 
 
-  constructor() {
+  constructor(headerComponent: HeaderComponent) {
+    this.headerComp = headerComponent;
   }
 
   ngOnInit(): void {
-    this.headerComp.setHeader('CHECKING ACCOUNT');
+    this.headerComp.setHeader(this.header);
   }
 
   getBalance(accountNumber): void {
