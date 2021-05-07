@@ -1,8 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
 import { BmmtService } from '../bmmt.service';
 import {MoneyAccount} from '../models/moneyaccount';
-import {Transaction} from '../models/transaction';
 
 
 
@@ -29,15 +27,18 @@ export class CheckingAcctComponent implements OnInit{
   ngOnInit(): void {
   }
 
+  // WILL NEED TO FIGURE OUT HOW TO GET INFO FROM USER TO INPUT IN METHODS
+  // CURRENTLY IT'S HARDCODED
+
   getCheckingBalance(): void {
-    this.accountService.userSingleAccount(23, 'Checking').then(r => this.accountBalance = r.balance);
-    // .subscribe(account => this.accountBalance = account.balance)
+    this.accountService.userSingleAccount(23, 'Checking')
+     .subscribe(account => this.accountBalance = account.balance);
   }
 
   getCheckingNumber(): void {
-    this.accountService.userSingleAccount(23, 'Checking');
-    // .subscribe(account =>
-    //     this.accountNum = account.accountNumber)
+    this.accountService.userSingleAccount(23, 'Checking')
+     .subscribe(account =>
+         this.accountNum = account.accountNumber % 1000);
   }
 
   getCheckingTransactions(): void {
