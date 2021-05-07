@@ -7,6 +7,26 @@
 <h2>{{accountNum}}</h2>
 <br>
 <br>
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Transaction Date</th>
+    <th scope="col">Amount</th>
+    <th scope="col">Type</th>
+    <th scope="col">Account from</th>
+    <th scope="col">Account to</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let transaction of transactions">
+    <td>{{ transaction.transactionDate }}</td>
+    <td>{{ transaction.amount }}</td>
+    <td>{{ transaction.transactionType }}</td>
+    <td>{{ transaction.accountOne }}</td>
+    <td>{{ transaction.accountTwo }}</td>
+  </tr>
+  </tbody>
+</table>
 <br>
 <br>
 <br>
