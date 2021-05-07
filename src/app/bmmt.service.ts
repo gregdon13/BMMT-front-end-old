@@ -40,9 +40,9 @@ export class BmmtService {
 
   // account methods
 
-  userSingleAccount(userId: number, accountName: string): Observable<any> {
+  userSingleAccount(userId: number, accountName: string): Promise<any> {
     accountName = 'Checking';
-    return this.http.get(`${this.mainUrl}/account/user/${userId}/${accountName}`);
+    return this.http.get(`${this.mainUrl}/account/user/${userId}/${accountName}`).toPromise();
   }
 
   createAccount(moneyAccount: MoneyAccount): Observable<any> {
