@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
 export class BmmtService {
 
   public account = [];
+  public faq = [];
 
   private readonly mainUrl: string;
 
@@ -76,5 +77,10 @@ export class BmmtService {
 
   deleteAccount(accountNumber): Observable<any> {
     return this.http.delete(`${this.mainUrl}/delete/${accountNumber}`);
+  }
+
+  //FAQ methods
+  getAllFAQs(): Observable<any> {
+    return this.http.get(`${this.mainUrl}/faq/all`)
   }
 }
