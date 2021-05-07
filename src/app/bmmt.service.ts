@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {Transaction} from './models/transaction';
 import {MoneyAccount} from './models/moneyaccount';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BmmtService {
+
+  public account = [];
 
   private readonly mainUrl: string;
 
@@ -35,7 +37,13 @@ export class BmmtService {
     return this.http.post(`${this.mainUrl}/transaction`, body);
   }
 
+
   // account methods
+
+  userSingleAccount(userId: number, accountName: string): Observable<any> {
+    accountName = 'Checking';
+    return this.http.get(`${this.mainUrl}/account/user/${userId}/${accountName}`);
+  }
 
   createAccount(moneyAccount: MoneyAccount): Observable<any> {
     const body = JSON.stringify(moneyAccount);
@@ -68,13 +76,5 @@ export class BmmtService {
 
   deleteAccount(accountNumber): Observable<any> {
     return this.http.delete(`${this.mainUrl}/delete/${accountNumber}`);
-  }
-
-  // User Methods
-
-  deleteUser(userProfile): Observable<any> {
-    return this.http.delete(`${this.mainUrl}/user/${userProfile}`);
-
-
   }
 }
