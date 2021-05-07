@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {BmmtService} from './bmmt.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
