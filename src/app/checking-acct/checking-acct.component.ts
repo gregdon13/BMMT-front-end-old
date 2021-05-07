@@ -12,7 +12,6 @@ import {Transaction} from '../models/transaction';
    styleUrls: ['./checking-acct.component.css']
 })
 export class CheckingAcctComponent implements OnInit{
-  // transactions: string;
   accountNum: number;
   accountBalance: number;
   accountsArr: MoneyAccount[];
@@ -23,6 +22,7 @@ export class CheckingAcctComponent implements OnInit{
     this.getCheckingBalance();
     this.getCheckingNumber();
     this.getCheckingTransactions();
+    console.log(this.accountBalance);
   }
 
 
@@ -30,12 +30,14 @@ export class CheckingAcctComponent implements OnInit{
   }
 
   getCheckingBalance(): void {
-    this.accountService.userSingleAccount(23, 'Checking').subscribe(account => this.accountBalance = account.balance);
+    this.accountService.userSingleAccount(23, 'Checking').then(r => this.accountBalance = r.balance);
+    // .subscribe(account => this.accountBalance = account.balance)
   }
 
   getCheckingNumber(): void {
-    this.accountService.userSingleAccount(23, 'Checking').subscribe(account =>
-    this.accountNum = account.accountNumber);
+    this.accountService.userSingleAccount(23, 'Checking');
+    // .subscribe(account =>
+    //     this.accountNum = account.accountNumber)
   }
 
   getCheckingTransactions(): void {
