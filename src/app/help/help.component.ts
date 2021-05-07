@@ -19,4 +19,5 @@ export class HelpComponent implements OnInit{
     window.alert(this.faq.Answer);
   }
 
+
 }

@@ -80,7 +80,12 @@ export class BmmtService {
   }
 
   //FAQ methods
+
   getAllFAQs(): Observable<any> {
     return this.http.get(`${this.mainUrl}/faq/all`)
+  }
+
+  getFAQById(ID: number): Observable<any> {
+    return this.http.get(`${this.mainUrl}/faq/${ID}`);
   }
 }
