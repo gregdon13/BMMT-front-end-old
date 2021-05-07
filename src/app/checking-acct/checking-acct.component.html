@@ -3,8 +3,8 @@
 <br>
 <h1>CHECKING ACCOUNT</h1>
 <br>
-<h3>{{accountBalance}}</h3>
-<h2>{{accountNum}}</h2>
+<h3>Balance: {{accountBalance}}</h3>
+<h2>xxx-xxx-{{accountNum}}</h2>
 <br>
 <br>
 <table class="table table-bordered table-striped">
@@ -18,7 +18,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let transaction of transactions">
+  <tr *ngFor="let transaction of transactions | slice:0:5; let i=index">
     <td>{{ transaction.transactionDate }}</td>
     <td>{{ transaction.amount }}</td>
     <td>{{ transaction.transactionType }}</td>
