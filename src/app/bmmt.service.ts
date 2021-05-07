@@ -3,12 +3,15 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Transaction} from './models/transaction';
 import {MoneyAccount} from './models/moneyaccount';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BmmtService {
+
+  public account = [];
 
   private readonly mainUrl: string;
 
@@ -36,6 +39,12 @@ export class BmmtService {
 
 
   // account methods
+
+  userSingleAccount(userId: number, accountName: string): Observable<any> {
+    accountName = 'Checking';
+    return this.http.get(`${this.mainUrl}/account/user/${userId}/${accountName}`);
+  }
+
   createAccount(moneyAccount: MoneyAccount): Observable<any> {
     const body = JSON.stringify(moneyAccount);
     return this.http.post(`${this.mainUrl}/account`, body);
