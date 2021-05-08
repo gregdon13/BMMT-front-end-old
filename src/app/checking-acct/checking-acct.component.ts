@@ -14,6 +14,8 @@ export class CheckingAcctComponent implements OnInit{
   accountBalance: number;
   accountsArr: MoneyAccount[];
   transactions: any[];
+  limit = 5;
+  view = 'View More';
 
 
   constructor(private accountService: BmmtService) {
@@ -51,6 +53,18 @@ export class CheckingAcctComponent implements OnInit{
         if (val.ACCOUNT_TYPE === 'Checking') {
           this.accountNum = val.ACCOUNT_NUMBER;
       }
+    }
+  }
+
+  showMoreItems(): void {
+    if (this.limit < 25) {
+      this.limit += 5;
+    }
+  }
+
+  showLessItems(): void {
+    if (this.limit > 5){
+      this.limit -= 5;
     }
   }
 
