@@ -1,18 +1,18 @@
-<app-header></app-header>
-
-
 <h1 style="text-align: center">Help Page</h1>
-<br>
-<br>
-
-<h2 style="text-align: center">FAQs</h2>
-<br>
-<br>
-
-<button (click) = "share()">{{faq.Question}}</button>
 
 <br>
 <br>
+<h2 style="text-align: center">
+  Frequently Asked Questions
+</h2>
 <br>
-<app-footer></app-footer>
+<div class="box" style="align-content: center">
+<button (click) = "share()"> Question: {{question}}</button>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
+<router-outlet></router-outlet>
