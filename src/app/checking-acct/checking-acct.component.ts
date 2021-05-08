@@ -12,15 +12,14 @@ import {MoneyAccount} from '../models/moneyaccount';
 export class CheckingAcctComponent implements OnInit{
   accountNum: number;
   accountBalance: number;
-  accountsArr: MoneyAccount[];
+  // accountsArr: MoneyAccount[];
   transactions: any[];
-
+  limit = 5;
 
   constructor(private accountService: BmmtService) {
     this.getCheckingBalance();
     this.getCheckingNumber();
     this.getCheckingTransactions();
-    console.log(this.accountBalance);
   }
 
 
@@ -31,7 +30,7 @@ export class CheckingAcctComponent implements OnInit{
   // CURRENTLY IT'S HARDCODED
 
   getCheckingBalance(): void {
-    this.accountService.userSingleAccount(23, 'SAVINGS')
+    this.accountService.userSingleAccount(23, 'Checking')
      .subscribe(account => this.accountBalance = account.balance);
   }
 
@@ -42,15 +41,28 @@ export class CheckingAcctComponent implements OnInit{
   }
 
   getCheckingTransactions(): void {
-    this.accountService.findAccountTransactions(987654321).subscribe(list => this.transactions = list);
+    this.accountService.findAccountTransactions(987654321)
+      .subscribe(list => this.transactions = list);
   }
 
-  getNumber(accountName, userId): void {
-    this.accountService.getAccountByUser(userId).subscribe(accounts => this.accountsArr = accounts);
-    for (const val of this.accountsArr) {
-        if (val.ACCOUNT_TYPE === 'Checking') {
-          this.accountNum = val.ACCOUNT_NUMBER;
-      }
+  // getNumber(accountName, userId): void {
+  //   this.accountService.getAccountByUser(userId).subscribe(accounts => this.accountsArr = accounts);
+  //   for (const val of this.accountsArr) {
+  //       if (val.ACCOUNT_TYPE === 'Checking') {
+  //         this.accountNum = val.ACCOUNT_NUMBER;
+  //     }
+  //   }
+  // }
+
+  showMoreItems(): void {
+    if (this.limit < 25) {
+      this.limit += 5;
+    }
+  }
+
+  showLessItems(): void {
+    if (this.limit > 5){
+      this.limit -= 5;
     }
   }
 
