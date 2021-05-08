@@ -9,7 +9,7 @@ import {BmmtService} from "../bmmt.service";
 })
 export class HelpComponent implements OnInit{
 
-  //faq: Faq=new Faq('What is the meaning of life?','42');
+  faq: Faq=new Faq('What is the meaning of life?','42');
   faqObject: Faq;
   question: string;
   answer:string;
@@ -22,7 +22,7 @@ export class HelpComponent implements OnInit{
   }
 
   share() {
-    window.alert(this.faqObject.Answer);
+    window.alert(this.getAnswer());
   }
 
   getQuestion(): void {
