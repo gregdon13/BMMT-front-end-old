@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Faq} from "../models/faq";
+import {BmmtService} from "../bmmt.service";
 
 @Component({
   selector: 'app-help',
@@ -8,15 +9,28 @@ import {Faq} from "../models/faq";
 })
 export class HelpComponent implements OnInit{
 
-  faq: Faq=new Faq('What is the meaning of life?','42');
+  //faq: Faq=new Faq('What is the meaning of life?','42');
+  faqObject: Faq;
+  question: string;
+  answer:string;
 
-  constructor() {
+  constructor(private faqService: BmmtService) {
+    this.getQuestion();
+    this.getAnswer();
   }
   ngOnInit() {
   }
 
   share() {
-    window.alert(this.faq.Answer);
+    window.alert(this.faqObject.Answer);
+  }
+
+  getQuestion(): void {
+    this.faqService.getFAQById(1).subscribe(faq => this.question = faq.question);
+  }
+
+  getAnswer(): void {
+    this.faqService.getFAQById(1).subscribe(faq => this.answer = faq.answer);
   }
 
 }
