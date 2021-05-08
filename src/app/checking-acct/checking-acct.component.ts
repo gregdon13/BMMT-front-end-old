@@ -31,7 +31,7 @@ export class CheckingAcctComponent implements OnInit{
   // CURRENTLY IT'S HARDCODED
 
   getCheckingBalance(): void {
-    this.accountService.userSingleAccount(23, 'Checking')
+    this.accountService.userSingleAccount(23, 'SAVINGS')
      .subscribe(account => this.accountBalance = account.balance);
   }
 
