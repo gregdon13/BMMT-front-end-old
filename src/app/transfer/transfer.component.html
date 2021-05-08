@@ -17,7 +17,9 @@
 
 <div class="actionAmount">
   <p>Amount:</p>
-  <input>
+  <form (submit)="onSubmit()">
+  <input [(ngModel)]="actAmt" name="formAmount">
+  </form>
 </div>
 
 <div class="accountTo" *ngIf="accountAction == 'TRANSFER'">

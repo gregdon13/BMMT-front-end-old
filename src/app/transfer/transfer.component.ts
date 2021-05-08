@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BmmtService} from '../bmmt.service';
 
+
 @Component({
   selector: 'app-transfer',
   templateUrl: './transfer.component.html',
@@ -11,6 +12,9 @@ export class TransferComponent implements OnInit {
   accountAction: string;
   accountFrom: string;
   accountTo: string;
+  acctFromNum: number;
+  acctToNum: number;
+  actAmt: number;
 
   constructor(private accountService: BmmtService) {
     this.getUserAccounts();
@@ -19,13 +23,26 @@ export class TransferComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(): number {
+    return this.actAmt;
+  }
+
+  getAccountFromNumber(): number {
+    console.log(this.accountFrom);
+    let numAcct: number;
+    this.accountService.userSingleAccount(23, this.accountFrom).subscribe(account => numAcct = account.accountNumber);
+    return numAcct;
+  }
+
   getUserAccounts(): void {
     this.accountService.getAccountByUser(23).subscribe(list => this.accounts = list);
   }
 
   submitAction(): void {
+    console.log(this.accountAction);
     if (this.accountAction === 'WITHDRAW') {
-      this.accountService.withdrawFunds(23, this.accountFrom);
+      this.getAccountFromNumber();
+      this.accountService.withdrawFunds(this.actAmt, this.acctFromNum);
     }
   }
 
