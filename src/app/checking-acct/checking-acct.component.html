@@ -1,12 +1,11 @@
-<app-header></app-header>
-<br>
-<br>
+
 <h1>CHECKING ACCOUNT</h1>
+<h4>xxx-xxx-{{accountNum}}</h4>
 <br>
-<h3>Balance: {{accountBalance}}</h3>
-<h2>xxx-xxx-{{accountNum}}</h2>
+<h3>Balance: {{accountBalance | number: '1.2-2'}}</h3>
 <br>
 <br>
+<div class="transactionTable">
 <table class="table table-bordered table-striped">
   <thead class="thead-dark">
   <tr>
@@ -18,9 +17,9 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let transaction of transactions | slice:0:5; let i=index">
+  <tr *ngFor="let transaction of transactions | slice:0: limit">
     <td>{{ transaction.transactionDate }}</td>
-    <td>{{ transaction.amount }}</td>
+    <td>{{ transaction.amount | number: '1.2-2' }}</td>
     <td>{{ transaction.transactionType }}</td>
     <td>{{ transaction.accountOne }}</td>
     <td>{{ transaction.accountTwo }}</td>
@@ -29,11 +28,20 @@
 </table>
 <br>
 <br>
+</div>
+<button *ngIf="limit < 25" (click)="showMoreItems()">View More</button>
+<button *ngIf="limit > 5" (click)="showLessItems()">ViewLess</button>
 <br>
 <br>
+<br>
+<br>
+<br>
+<div class="navButtons">
+  <button routerLink="/help">Help</button>
+  <button routerLink="/transfer">Account Actions</button>
+</div>
 
 
-<app-footer></app-footer>
 
 <router-outlet></router-outlet>
 
