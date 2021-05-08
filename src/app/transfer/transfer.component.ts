@@ -23,4 +23,10 @@ export class TransferComponent implements OnInit {
     this.accountService.getAccountByUser(23).subscribe(list => this.accounts = list);
   }
 
+  submitAction(): void {
+    if (this.accountAction === 'WITHDRAW') {
+      this.accountService.withdrawFunds(23, this.accountFrom);
+    }
+  }
+
 }
