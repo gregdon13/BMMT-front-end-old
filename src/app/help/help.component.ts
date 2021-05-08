@@ -22,7 +22,7 @@ export class HelpComponent implements OnInit{
   }
 
   share() {
-    window.alert(this.getAnswer());
+    window.alert(this.getFaqAnswer());
   }
 
   getQuestion(): void {
@@ -33,4 +33,11 @@ export class HelpComponent implements OnInit{
     this.faqService.getFAQById(1).subscribe(faq => this.answer = faq.answer);
   }
 
+  getFaqQuestion(): string {
+    return this.faq.Question;
+  }
+
+  getFaqAnswer(): string {
+    return this.faq.Answer;
+  }
 }
