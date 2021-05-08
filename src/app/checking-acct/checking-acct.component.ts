@@ -1,6 +1,5 @@
 import { Component, OnInit} from '@angular/core';
 import { BmmtService } from '../bmmt.service';
-import {MoneyAccount} from '../models/moneyaccount';
 
 
 
@@ -12,7 +11,6 @@ import {MoneyAccount} from '../models/moneyaccount';
 export class CheckingAcctComponent implements OnInit{
   accountNum: number;
   accountBalance: number;
-  // accountsArr: MoneyAccount[];
   transactions: any[];
   limit = 5;
 
@@ -44,15 +42,6 @@ export class CheckingAcctComponent implements OnInit{
     this.accountService.findAccountTransactions(987654321)
       .subscribe(list => this.transactions = list);
   }
-
-  // getNumber(accountName, userId): void {
-  //   this.accountService.getAccountByUser(userId).subscribe(accounts => this.accountsArr = accounts);
-  //   for (const val of this.accountsArr) {
-  //       if (val.ACCOUNT_TYPE === 'Checking') {
-  //         this.accountNum = val.ACCOUNT_NUMBER;
-  //     }
-  //   }
-  // }
 
   showMoreItems(): void {
     if (this.limit < 25) {
