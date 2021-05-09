@@ -12,6 +12,8 @@ import { SavingsAcctComponent } from './savings-acct';
 import { InvestmentAcctComponent } from './investment-acct';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TransferComponent } from './transfer/transfer.component';
+import { DevPortalComponent } from './dev-portal/dev-portal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     CheckingAcctComponent,
     SavingsAcctComponent,
     InvestmentAcctComponent,
+    TransferComponent,
+    DevPortalComponent,
   ],
     imports: [
         BrowserModule,

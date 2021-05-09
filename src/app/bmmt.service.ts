@@ -42,7 +42,6 @@ export class BmmtService {
   // account methods
 
   userSingleAccount(userId: number, accountName: string): Observable<any> {
-    accountName = 'Checking';
     return this.http.get(`${this.mainUrl}/account/user/${userId}/${accountName}`);
   }
 
