@@ -5,6 +5,7 @@ export class Faq {
   Answer: string;
 
   constructor(
+  ID: number,
   Question: string,
   Answer: string
   ){}
