@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {Faq} from "../models/faq";
 import {BmmtService} from "../bmmt.service";
 
@@ -7,30 +7,40 @@ import {BmmtService} from "../bmmt.service";
   templateUrl: 'help.component.html',
   styleUrls: ['./help.component.css']
 })
-export class HelpComponent implements OnInit{
+export class HelpComponent implements OnInit, DoCheck{
 
-  faq: Faq=new Faq('What is the meaning of life?','42');
-  faqObject: Faq;
-  question: string;
-  answer:string;
+  faqObject: { question: string; answer: string };
+  // id: number;
+  // question: string;
+  // answer:string;
+
 
   constructor(private faqService: BmmtService) {
-    this.getQuestion();
-    this.getAnswer();
   }
+
   ngOnInit() {
+    this.faqObject = {
+      question: 'What is the meaning of life?',
+      answer: ' Answer: 42! '
+    }
+  }
+
+  ngDoCheck() {
+    console.log('checked');
   }
 
   share() {
-    window.alert(this.getAnswer());
+    window.alert(this.faqObject.answer);
   }
 
-  getQuestion(): void {
-    this.faqService.getFAQById(1).subscribe(faq => this.question = faq.question);
+  getQuestion(): string {
+    this.faqService.getFAQById(1).subscribe(faq => this.faqObject.question = faq.question);
+    return this.faqObject.question;
   }
 
-  getAnswer(): void {
-    this.faqService.getFAQById(1).subscribe(faq => this.answer = faq.answer);
+  getAnswer(): string {
+    this.faqService.getFAQById(1).subscribe(faq => this.faqObject = faq.answer);
+    return this.faqObject.answer
   }
 
 }
