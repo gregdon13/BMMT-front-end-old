@@ -13,19 +13,28 @@ export class CheckingAcctComponent implements OnInit{
   accountBalance: number;
   transactions: any[];
   limit = 5;
+  checkAcct = [];
 
   constructor(private accountService: BmmtService) {
+    // this.getCheckingBalance();
+    // this.getCheckingNumber();
+    // this.getCheckingTransactions();
+  }
+
+
+  ngOnInit(): void {
+    this.withdraw();
     this.getCheckingBalance();
     this.getCheckingNumber();
     this.getCheckingTransactions();
   }
 
-
-  ngOnInit(): void {
-  }
-
   // WILL NEED TO FIGURE OUT HOW TO GET INFO FROM USER TO INPUT IN METHODS
   // CURRENTLY IT'S HARDCODED
+
+  withdraw(): void {
+    this.accountService.withdrawFunds(10, 987654321);
+  }
 
   getCheckingBalance(): void {
     this.accountService.userSingleAccount(23, 'Checking')
