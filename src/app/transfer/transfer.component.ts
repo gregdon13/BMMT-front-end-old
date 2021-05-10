@@ -31,6 +31,7 @@ export class TransferComponent implements OnInit {
     console.log(this.accountFrom);
     let numAcct: number;
     this.accountService.userSingleAccount(23, this.accountFrom).subscribe(account => numAcct = account.accountNumber);
+    console.log(numAcct);
     return numAcct;
   }
 
@@ -39,11 +40,7 @@ export class TransferComponent implements OnInit {
   }
 
   submitAction(): void {
-    console.log(this.accountAction);
-    if (this.accountAction === 'WITHDRAW') {
-      this.getAccountFromNumber();
-      this.accountService.withdrawFunds(this.actAmt, this.acctFromNum);
-    }
+    this.accountService.withdrawFunds(this.actAmt, 987654321);
   }
 
 }

@@ -3,7 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Transaction} from './models/transaction';
 import {MoneyAccount} from './models/moneyaccount';
-import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -79,10 +78,10 @@ export class BmmtService {
     return this.http.delete(`${this.mainUrl}/delete/${accountNumber}`);
   }
 
-  //FAQ methods
+  // FAQ methods
 
   getAllFAQs(): Observable<any> {
-    return this.http.get(`${this.mainUrl}/faq/all`)
+    return this.http.get(`${this.mainUrl}/faq/all`);
   }
 
   getFAQById(ID: number): Observable<any> {

@@ -40,7 +40,7 @@ export class SavingsAcctComponent implements OnInit {
   }
 
   getSavingsTransactions(): void {
-    this.accountService.findAccountTransactions(this.returnSavingsNumber())
+    this.accountService.findAccountTransactions(123456789)
       .subscribe(list => this.transactions = list);
   }
 
