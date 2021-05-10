@@ -12,8 +12,14 @@ import { SavingsAcctComponent } from './savings-acct';
 import { InvestmentAcctComponent } from './investment-acct';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TransferComponent } from './transfer/transfer.component';
-import { DevPortalComponent } from './dev-portal/dev-portal.component';
+import { TransferComponent } from './transfer';
+import {AlertModule} from "ngx-bootstrap/alert";
+import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule} from "@angular/material/button";
+import { UserProfileComponent } from "./user-profile/user-profile.component";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,14 +32,19 @@ import { DevPortalComponent } from './dev-portal/dev-portal.component';
     SavingsAcctComponent,
     InvestmentAcctComponent,
     TransferComponent,
-    DevPortalComponent,
+    UserProfileComponent,
   ],
-    imports: [
-        BrowserModule,
-        appRoutingModule,
-        FormsModule,
-      HttpClientModule
-    ],
+  imports: [
+    AlertModule.forRoot(),
+    BrowserModule,
+    appRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    AlertModule,
+    BsDropdownModule.forRoot(),
+    BrowserAnimationsModule,
+    MatButtonModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

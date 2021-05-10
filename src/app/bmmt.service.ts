@@ -13,6 +13,7 @@ import { map } from 'rxjs/operators';
 export class BmmtService {
 
   public account = [];
+  singleAccount: MoneyAccount;
   public faq = [];
 
   private readonly mainUrl: string;
@@ -68,7 +69,7 @@ export class BmmtService {
   }
 
   withdrawFunds(amount, accountNumber): Observable<any> {
-    return this.http.put(`${this.mainUrl}/account/withdraw/${accountNumber}`, amount);
+    return this.http.put(`${this.mainUrl}/account/withdraw/${accountNumber}/${amount}`, this.singleAccount);
   }
 
   transferFunds(amount, accountOne, accountTwo): Observable<any> {

@@ -15,6 +15,13 @@
 </select>
 </div>
 
+<div class="actionAmount">
+  <p>Amount:</p>
+  <form (submit)="onSubmit()">
+  <input [(ngModel)]="actAmt" name="formAmount">
+  </form>
+</div>
+
 <div class="accountTo" *ngIf="accountAction == 'TRANSFER'">
   <p>Account to:</p>
   <select class="acctToMenu" [(ngModel)]="accountTo">
@@ -23,4 +30,5 @@
 </div>
 
 
-<button>SUBMIT</button>
+<button (click)="submitAction()" routerLink="/checking">SUBMIT</button>
+<button routerLink="..">CANCEL</button>
