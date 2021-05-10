@@ -16,9 +16,8 @@ export class HelpComponent implements OnInit, DoCheck{
 
 
   constructor(private faqService: BmmtService) {
-    // this.getQuestion();
-    // this.getAnswer();
   }
+
   ngOnInit() {
     this.faqObject = {
       question: 'What is the meaning of life?',
@@ -34,12 +33,14 @@ export class HelpComponent implements OnInit, DoCheck{
     window.alert(this.faqObject.answer);
   }
 
-  // getQuestion(): void {
-  //   this.faqService.getFAQById(1).subscribe(faq => this.question = faq.question);
-  // }
-  //
-  // getAnswer(): void {
-  //   this.faqService.getFAQById(1).subscribe(faq => this.answer = faq.answer);
-  // }
+  getQuestion(): string {
+    this.faqService.getFAQById(1).subscribe(faq => this.faqObject.question = faq.question);
+    return this.faqObject.question;
+  }
+
+  getAnswer(): string {
+    this.faqService.getFAQById(1).subscribe(faq => this.faqObject = faq.answer);
+    return this.faqObject.answer
+  }
 
 }
