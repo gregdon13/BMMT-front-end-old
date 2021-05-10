@@ -4,6 +4,7 @@
 <br>
 <h3>Balance: {{accountBalance | number: '1.2-2'}}</h3>
 <br>
+<h2>{{checkAcct}}</h2>
 <br>
 <div class="transactionTable">
 <table class="table table-bordered table-striped">
@@ -40,6 +41,8 @@
   <button routerLink="/help">Help</button>
   <button routerLink="/transfer">Account Actions</button>
 </div>
+
+<button (click)="withdraw()">WITHDRAW</button>
 
 
 

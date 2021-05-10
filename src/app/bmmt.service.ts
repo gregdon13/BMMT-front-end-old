@@ -4,7 +4,6 @@ import {Observable} from 'rxjs';
 import {Transaction} from './models/transaction';
 import {MoneyAccount} from './models/moneyaccount';
 import { map } from 'rxjs/operators';
-import {UserProfileComponent} from "./user-profile/user-profile.component";
 
 
 @Injectable({
@@ -88,23 +87,5 @@ export class BmmtService {
 
   getFAQById(ID: number): Observable<any> {
     return this.http.get(`${this.mainUrl}/faq/${ID}`);
-  }
-
-  //user methods
-
-  //create user
-  createUserProfile(userProfile: UserProfileComponent): Observable<any> {
-    const body = JSON.stringify(userProfile);
-    return this.http.post(`${this.mainUrl}/user`, body);
-  }
-  //get user
-  getUserProfile(): Observable<any> {
-    return this.http.get(`${this.mainUrl}/user`);
-  }
-  //update user
-
-  //delete user
-  deleteUserProfile(userProfile): Observable<any> {
-    return this.http.delete(`${this.mainUrl}/user/id`);
   }
 }
