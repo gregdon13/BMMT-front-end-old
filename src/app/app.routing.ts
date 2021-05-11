@@ -7,6 +7,8 @@ import {CheckingAcctComponent} from './checking-acct';
 import {SavingsAcctComponent} from './savings-acct';
 import {InvestmentAcctComponent} from './investment-acct';
 import {UserProfileComponent} from "./user-profile/user-profile.component";
+import { TransferComponent } from './transfer';
+import { DevPortalComponent } from "./dev-portal/dev-portal.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: 'checking', component: CheckingAcctComponent},
   { path: 'savings', component: SavingsAcctComponent},
   { path: 'investment', component: InvestmentAcctComponent},
-  { path: 'Create Account', component: UserProfileComponent},
+  { path: 'Create-Profile', component: UserProfileComponent},
+  { path: 'transfer', component: TransferComponent },
+  { path: 'devPage', component: DevPortalComponent  },
 
   // otherwise redirects to home
   { path: '**', redirectTo: ''}
