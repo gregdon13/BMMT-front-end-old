@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Transaction} from './models/transaction';
 import {MoneyAccount} from './models/moneyaccount';
 import { map } from 'rxjs/operators';
+import {Faq} from "./models/faq";
 
 
 @Injectable({
@@ -90,5 +91,10 @@ export class BmmtService {
 
   getFAQById(ID: number): Observable<any> {
     return this.http.get(`${this.mainUrl}/faq/${ID}`);
+  }
+
+  createFaq(faq: Faq): Observable<Faq>{
+    const body = JSON.stringify(faq);
+    return this.http.post<Faq>(`${this.mainUrl}/faq`, body);
   }
 }

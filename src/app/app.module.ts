@@ -13,7 +13,7 @@ import { InvestmentAcctComponent } from './investment-acct';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TransferComponent } from './transfer';
-import {AlertModule} from "ngx-bootstrap/alert";
+import { AlertModule } from "ngx-bootstrap/alert";
 import { BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule} from "@angular/material/button";
