@@ -5,10 +5,20 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!------ Include the above in your HEAD tag ---------->
 
-<form action="/action_page.php">
-  <label for="question">New Question: </label>
-  <input type="text" id="question" question="question"><br><br>
-  <label for="answer">Answer: </label>
-  <input type="text" id="answer" answer="answer"><br><br>
-  <input type="submit" value="Submit">
-</form>
+
+<div class="container">
+  <div class="row">
+    <form>
+      <fieldset>
+        <legend class="text-center">Fill out below to create new faq.<span class="req"><small>
+                                required *</small></span></legend>
+
+        <div clas="form-group">
+<!--          <label for ="Question"><span class="req">*</span> Question: </label>-->
+<!--          <input required type="text" [(ngModel)]="question" name="question" id="question"-->
+<!--                 placeholder="Enter new faq here..."/>-->
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

@@ -1,36 +1,28 @@
 export class Faq {
 
   private _ID: number;
-  Question: string;
-  Answer: string;
+  private _Question: string;
+  private _Answer: string;
 
-  constructor(
-  ID: number,
-  Question: string,
-  Answer: string
-  ){}
+  constructor(){}
 
-  get ID(): number {
+  setQuestion(question: string){
+    this._Question = question;
+  }
+
+  setAnswer(answer: string){
+    this._Answer = answer;
+  }
+
+  getQuestion(): string {
+    return this._Question;
+  }
+
+  getAnswer(): string {
+    return this._Answer;
+  }
+
+  getID(): number {
     return this._ID;
-  }
-
-  set ID(value: number) {
-    this._ID = value;
-  }
-
-  get quesiton(): string {
-    return this.Question;
-  }
-
-  set question(value: string) {
-    this.Question = value;
-  }
-
-  get answer() {
-    return this.Answer;
-  }
-
-  set answer(value) {
-    this.Answer = value;
   }
 }
